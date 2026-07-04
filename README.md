@@ -53,3 +53,18 @@ Puntos de diseno importantes: el servidor no debe tener acceso de escritura, es 
 ## Proximos pasos
 
 Definir el stack final, backend, base de datos y frontend admin, segun el equipo de desarrollo disponible. Prototipar primero el motor de reglas de tarifas, porque es la pieza que mas valor aporta frente a un sistema generico. Anadir el modulo de afiliados una vez el flujo de reservas este estable. Dejar el servidor MCP para el final, una vez el motor de tarifas y disponibilidad tengan una API interna solida sobre la que apoyarse.
+
+
+## Codigo de ejemplo (borrador, no funcional aun)
+
+Este repositorio incluye un esbozo de codigo Java/Spring Boot escrito desde cero (sin copiar ningun repositorio de terceros) para ilustrar como se verian estas piezas en la practica:
+
+backend/src/main/java/com/ideorentacar/rental: entidades base de reserva (Car, Booking, RentalOrder) y sus estados.
+
+backend/src/main/java/com/ideorentacar/pricing: el motor de reglas de tarifas descrito arriba (RateRule, BaseRate, ExtraOption, PriceBreakdown, DefaultPricingEngine con la logica de calculo).
+
+backend/src/main/java/com/ideorentacar/affiliate: el modulo de afiliados descrito arriba (Affiliate, AffiliateClick, AffiliateConversion).
+
+mcp/README.md: la especificacion de las herramientas del servidor MCP de solo lectura.
+
+Este codigo es un punto de partida conceptual, no una aplicacion completa: falta persistencia real, capa REST, autenticacion, pruebas, etc.
